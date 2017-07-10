@@ -6,11 +6,15 @@ For more information on running the code:
 http://www.moorerobots.com
 
 Compatability: 
+
 ->Software
    ROS: Kinetic
+   
    OS: Ubuntu 16.04
+   
 ->Hardware
    Differential Drive Robot: GoPiGo
+   
    WiFi USB Stick: Raspberry Pi USB WiFi Dongle
 
 
@@ -21,8 +25,11 @@ If you have a different type of robot, then you will need to edit gopigo_control
 Installing Tutorial:
 
 1- Create a new workspace called gopigo_ws using:
+
 $ mkdir -p ~/catkin_ws/src
+
 $ cd ~/catkin_ws/
+
 $ catkin_make
 
 2-Get the repository:
@@ -34,4 +41,5 @@ or
 sudo git clone -b openloop https://github.com/richardw05/gopigo_ws.git
 
 3-Build the repository by running:
+
 $ catkin_make
