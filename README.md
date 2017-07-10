@@ -18,7 +18,7 @@ Compatability:
    WiFi USB Stick: Raspberry Pi USB WiFi Dongle
 
 
-Different Hardware - No Problem!
+# Different Hardware - No Problem!
 
 If you have a different type of robot, then you will need to edit gopigo_controller/src/gopigo_controller.py. Search for the gopigo_on flag and edit to transmit commands for your motors. You may need to edit the parameter values in gopigo_description/launch/gopigo_interface.launch
 
