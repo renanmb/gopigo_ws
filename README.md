@@ -8,11 +8,13 @@ http://www.moorerobots.com
 Compatability: 
 
 ->Software
+
    ROS: Kinetic
    
    OS: Ubuntu 16.04
    
 ->Hardware
+
    Differential Drive Robot: GoPiGo
    
    WiFi USB Stick: Raspberry Pi USB WiFi Dongle
