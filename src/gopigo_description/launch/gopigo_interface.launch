@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <launch>
 
-  <node pkg="gopigo_controller" type="gopigo_controller.py" name="gopigo_controller" output="screen">
-    <param name="rate" value="5" />
-    <param name="motor_max_angular_vel" value="5.64" />
-    <param name="motor_min_angular_vel" value="1.22" />
-    <param name="motor_cmd_max" value="255" />
-    <param name="motor_cmd_min" value="110" />
-    <param name="robot_wheel_radius" value="0.03" />
-    <param name="gopigo_on" value="True" />
+  <node pkg="gopigo_controller" type="surp_controller.py" name="surp_controller" output="screen">
+    <param name="rate" value="100" />
+    <param name="motor_max_angular_vel" value="21.598" />
+    <param name="motor_min_angular_vel" value="0.982" />
+    <param name="motor_cmd_max" value="22000" />
+    <param name="motor_cmd_min" value="1000" />
+    <param name="robot_wheel_radius" value="0.052" />
+    <param name="gopigo_on" value="on" />
   </node>
 
 

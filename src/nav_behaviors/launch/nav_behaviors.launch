@@ -2,10 +2,20 @@
 <launch>
 
   <node pkg="diffdrive_controller" type="diffdrive_controller.py" name="diffdrive_controller" output="screen">
-    <param name="rate" value="1" />
-    <param name="timeout_idle" value="50" />
+    <param name="rate" value="50" />
+    <param name="timeout_idle" value="1" />
     <param name="robot_wheel_separation_distance" value="0.14" />
     <param name="robot_wheel_radius" value="0.03" />
+  </node>
+
+  <node pkg="gopigo_controller" type="surp_controller.py" name="surp_controller" output="screen">
+    <param name="rate" value="100" />
+    <param name="motor_max_angular_vel" value="21.598" />
+    <param name="motor_min_angular_vel" value="0.982" />
+    <param name="motor_cmd_max" value="22000" />
+    <param name="motor_cmd_min" value="1000" />
+    <param name="robot_wheel_radius" value="0.052" />
+    <param name="gopigo_on" value="on" />
   </node>
 
 </launch>
