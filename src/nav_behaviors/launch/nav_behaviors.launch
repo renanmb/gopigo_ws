@@ -18,4 +18,10 @@
     <param name="gopigo_on" value="on" />
   </node>
 
+	<!-- <node name="surp" type="commlink.cpp" pkg="surp" output="screen"/> -->
+
+  <!-- <node name="foo_throttler" type="throttle" pkg="topic_tools" args="messages /comm_drive_robot 30 /comm_drive_robot_throttle"/> -->
+  
+	<!-- <node name="pd_controller" type="pd_controller.cpp" pkg="pd_controller" output="screen" />
+-->
 </launch>

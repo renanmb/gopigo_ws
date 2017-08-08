@@ -3,6 +3,7 @@
 #include <std_msgs/Float32.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/Int32.h>
+#include "surp/Int32Stamped.h"
 
 class Link{
    public:
@@ -25,7 +26,9 @@ class Link{
      ros::Subscriber motor1_cmd_sub;
      ros::Subscriber motor2_cmd_sub;
      geometry_msgs::Twist vel;
-     std_msgs::Int32 encoder;
+     //std_msgs::Int32 encoder;
+		 surp::Int32Stamped encoder;
+     ros::Time now_time =ros::Time::now();
      std_msgs::Float32 accel_x;
      std_msgs::Float32 accel_y;
     
@@ -34,7 +37,7 @@ class Link{
 //This will change when add the TF and pose 
 Link::Link(){
    pub1 = nh.advertise<geometry_msgs::Twist> ("/comm_drive_robot", 10 );
-   pub2 = nh.advertise<std_msgs::Int32> ("/comm_encoder", 10);
+   pub2 = nh.advertise<surp::Int32Stamped> ("/comm_encoder", 10);
    pub3 = nh.advertise<std_msgs::Float32> ("/comm_accel_x", 1);
    pub4 = nh.advertise<std_msgs::Float32> ("/comm_accel_y", 1);
 
@@ -65,7 +68,8 @@ void Link::velAngularCallback(const std_msgs::Float32::ConstPtr& wz){
 
 void Link::encoderCallback(const std_msgs::Int32::ConstPtr& tk){
    
-   encoder.data = tk->data; 
+   encoder.data = tk->data;
+	 encoder.header.stamp = now_time; 
    pub2.publish(encoder); //need to review how to do this
 }
 
