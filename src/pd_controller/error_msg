@@ -32,4 +32,8 @@ Makefile:138: recipe for target 'all' failed
 make: *** [all] Error 2
 Invoking "make -j4 -l4" failed
 
+************************************************************************
+error fixed
+Proble with the differentiation
+I get nan as output in cmd_vel
 
