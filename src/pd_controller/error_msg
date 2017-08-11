@@ -5,3 +5,31 @@
 /home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 15: //: Is a directory
 /home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 16: syntax error near unexpected token `('
 /home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 16: `void encoderCallback(const surp::Int32Stamped::ConstPtr& tk){'
+
+
+
+*****************************************************************************************
+after fixing makefile
+
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: In function ‘void encoderCallback(const ConstPtr&)’:
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp:21:61: error: no match for ‘operator/’ (operand types are ‘double’ and ‘ros::Duration’)
+    double kd = (double(encoder.data) - double(encoder.data))/timelapse;
+                                                             ^
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp:24:25: error: no match for ‘operator=’ (operand types are ‘std_msgs::Header_<std::allocator<void> >::_stamp_type {aka ros::Time}’ and ‘const _header_type {aka const std_msgs::Header_<std::allocator<void> >}’)
+    encoder.header.stamp = tk->header; 
+                         ^
+In file included from /opt/ros/kinetic/include/ros/ros.h:38:0,
+                 from /home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp:1:
+/opt/ros/kinetic/include/ros/time.h:176:22: note: candidate: ros::Time& ros::Time::operator=(const ros::Time&)
+   class ROSTIME_DECL Time : public TimeBase<Time, Duration>
+                      ^
+/opt/ros/kinetic/include/ros/time.h:176:22: note:   no known conversion for argument 1 from ‘const _header_type {aka const std_msgs::Header_<std::allocator<void> >}’ to ‘const ros::Time&’
+pd_controller/CMakeFiles/pd_controller.dir/build.make:62: recipe for target 'pd_controller/CMakeFiles/pd_controller.dir/src/pd_controller.cpp.o' failed
+make[2]: *** [pd_controller/CMakeFiles/pd_controller.dir/src/pd_controller.cpp.o] Error 1
+CMakeFiles/Makefile2:784: recipe for target 'pd_controller/CMakeFiles/pd_controller.dir/all' failed
+make[1]: *** [pd_controller/CMakeFiles/pd_controller.dir/all] Error 2
+Makefile:138: recipe for target 'all' failed
+make: *** [all] Error 2
+Invoking "make -j4 -l4" failed
+
+
