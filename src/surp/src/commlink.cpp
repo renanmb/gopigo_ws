@@ -28,7 +28,7 @@ class Link{
      geometry_msgs::Twist vel;
      //std_msgs::Int32 encoder;
 		 surp::Int32Stamped encoder;
-     ros::Time now_time =ros::Time::now();
+     //ros::Time now_time =ros::Time::now();
      std_msgs::Float32 accel_x;
      std_msgs::Float32 accel_y;
     
@@ -69,7 +69,7 @@ void Link::velAngularCallback(const std_msgs::Float32::ConstPtr& wz){
 void Link::encoderCallback(const std_msgs::Int32::ConstPtr& tk){
    
    encoder.data = tk->data;
-	 encoder.header.stamp = now_time; 
+	 encoder.header.stamp = ros::Time::now(); 
    pub2.publish(encoder); //need to review how to do this
 }
 
