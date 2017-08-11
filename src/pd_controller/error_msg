@@ -1,0 +1,7 @@
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 9: surp::Int32Stamped: command not found
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 11: ros::Subscriber: command not found
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 12: ros::Publisher: command not found
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 13: geometry_msgs::Twist: command not found
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 15: //: Is a directory
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 16: syntax error near unexpected token `('
+/home/rmb/gopigo_ws/src/pd_controller/src/pd_controller.cpp: line 16: `void encoderCallback(const surp::Int32Stamped::ConstPtr& tk){'
