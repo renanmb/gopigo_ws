@@ -1,0 +1,2 @@
+[ERROR] [1502413341.933058388]: Client [/test_encoder] wants topic /comm_encoder to have datatype/md5sum [std_msgs/Int32/da5909fbe378aeaf85e547e830cc1bb7], but our version has [surp/Int32Stamped/e7344a45486eefa24d2f337265df37ce]. Dropping connection.
+
