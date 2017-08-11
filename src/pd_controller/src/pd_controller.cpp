@@ -3,24 +3,25 @@
 #include <std_msgs/Float32.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/Int32.h>
-#include "surp/Int32Stamped.h"
+#include "pd_controller/Int32Stamped.h"
 #include <math.h>
 
-surp::Int32Stamped encoder;
+pd_controller::Int32Stamped encoder;
 
 ros::Subscriber encoder_sub;
 ros::Publisher vel_pub;
 geometry_msgs::Twist vel;		
 
 // subscriber from comm encoder
-void encoderCallback(const surp::Int32Stamped::ConstPtr& tk){
+void encoderCallback(const pd_controller::Int32Stamped::ConstPtr& tk){
 
 //Modify this equation to be the Controller Function
-	 double timelapse = double(encoder.header.stamp) - double(encoder.header.stamp);
+	// double timelapse[10] = {0};
+   double timelapse = encoder.header.stamp.toSec() -encoder.header.stamp.toSec();
    double kd = (double(encoder.data) - double(encoder.data))/timelapse;
    vel.linear.x = float(((encoder.data*234)*5886) + kd);
    encoder.data = tk->data;
-   encoder.header.stamp = tk->header; 
+   encoder.header = tk->header; 
    vel_pub.publish(vel);
 }
 
@@ -33,7 +34,7 @@ int main(int argc, char** argv){
    ros::init(argc, argv, "pd_controller");
    ros::NodeHandle nh;
    vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
-   encoder_sub = nh.subscribe<std_msgs::Int32> ("comm_encoder", 10, &encoderCallback); 
+   encoder_sub = nh.subscribe<pd_controller::Int32Stamped> ("comm_encoder", 10, &encoderCallback); 
 		
 
    ros::spin();
