@@ -10,14 +10,16 @@ pd_controller::Int32Stamped encoder;
 
 ros::Subscriber encoder_sub;
 ros::Publisher vel_pub;
-geometry_msgs::Twist vel;		
+geometry_msgs::Twist vel;
+double	previous_time;	
 
 // subscriber from comm encoder
 void encoderCallback(const pd_controller::Int32Stamped::ConstPtr& tk){
 
 //Modify this equation to be the Controller Function
 	// double timelapse[10] = {0};
-   double timelapse = encoder.header.stamp.toSec() -encoder.header.stamp.toSec();
+   double timelapse = encoder.header.stamp.toSec() - previous_time;
+	 previous_time = encoder.header.stamp.toSec();
    double kd = (double(encoder.data) - double(encoder.data))/timelapse;
    vel.linear.x = float(((encoder.data*234)*5886) + kd);
    encoder.data = tk->data;
@@ -36,6 +38,7 @@ int main(int argc, char** argv){
    vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
    encoder_sub = nh.subscribe<pd_controller::Int32Stamped> ("comm_encoder", 10, &encoderCallback); 
 		
+	 previous_time = ros::Time::now().toSec();
 
    ros::spin();
 
